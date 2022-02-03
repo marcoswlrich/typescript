@@ -3,14 +3,25 @@ class Pessoa {
     public nome: string,
     public sobrenome: string,
     private idade: number,
-    protected cpf: string,
-  ) {}
+    private _cpf: string,
+  ) {
+    this.cpf = _cpf;
+  }
+
+  // métodos estáticos
+  static criaPessoa(nome: string, sobrenome: string): Pessoa {
+    return new Pessoa(nome, sobrenome, 0, '000.000.000-00');
+  }
 
   getIdade(): number {
     return this.idade;
   }
 
-  getCpf(): string {
+  set cpf(cpf: string) {
+    this.cpf = cpf;
+  }
+
+  get cpf(): string {
     return this.cpf;
   }
 
@@ -38,5 +49,11 @@ const cliente = new Cliente('Marcos', 'Wlrich', 30, '000.000.000-00');
 console.log(pessoa.getNomeCompleto);
 console.log(aluno.getNomeCompleto);
 console.log(cliente.getNomeCompleto);
+pessoa.cpf = '222.222.222-22'; // Setter
+console.log(pessoa.cpf); // Getter
+
+// chamando o método estático
+const pessoa1 = Pessoa.criaPessoa('Maria', 'Joana');
+console.log(pessoa1);
 
 export { Pessoa, Aluno, Cliente };

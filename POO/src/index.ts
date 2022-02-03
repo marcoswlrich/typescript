@@ -29,8 +29,10 @@ class Facebook extends Empresa {
     super('Facebook', '11.111.111/0001-90');
   }
 
-  pop(): Colaborador | null {
+  popColaborador(): Colaborador | null {
     const colaborador = this.colaboradores.pop();
+    if (colaborador) return colaborador;
+    return null;
   }
 }
 
@@ -41,15 +43,15 @@ class Colaborador {
   }
 }
 
-const empresa1 = new Empresa('Facebook', '11.222.222/0001-10');
+const empresa1 = new Facebook();
 const colaborador1 = new Colaborador('Marcos', 'Wlrich');
 const colaborador2 = new Colaborador('Maria', 'Joana');
 const colaborador3 = new Colaborador('Marcos', 'Pedro');
-console.log(empresa1);
 empresa1.adicionaColaborador(colaborador1);
 empresa1.adicionaColaborador(colaborador2);
 empresa1.adicionaColaborador(colaborador3);
+const colaboradorRemovido = empresa1.popColaborador();
 console.log(empresa1);
-empresa1.mostrarColaboradores();
+console.log(colaboradorRemovido);
 
 export { Empresa, Colaborador, Facebook };
