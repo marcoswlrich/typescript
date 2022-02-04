@@ -1,4 +1,8 @@
 class Pessoa {
+  static IdadePadrao = 0;
+
+  static cpfPadrao = '000.000.000=00';
+
   constructor(
     public nome: string,
     public sobrenome: string,
@@ -10,7 +14,7 @@ class Pessoa {
 
   // métodos estáticos
   static criaPessoa(nome: string, sobrenome: string): Pessoa {
-    return new Pessoa(nome, sobrenome, 0, '000.000.000-00');
+    return new Pessoa(nome, sobrenome, Pessoa.IdadePadrao, Pessoa.cpfPadrao);
   }
 
   getIdade(): number {
