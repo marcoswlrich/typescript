@@ -27,7 +27,8 @@
   "max-classes-per-file": "off",
   "no-use-before-define":"off",
   "no-restricted-syntax": "off",
-  "no-useless-constructor": "off"
+  "no-useless-constructor": "off",
+  "no-underscore-dangle": "off"
   
   }
   
