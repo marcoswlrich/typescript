@@ -8,6 +8,8 @@ type Cpf = {
   cpf: string;
 };
 
+// Pode usar assim tb
+// type TodosTipos = TipoPessoa & Cpf;
 class Pessoa implements TipoPessoa, Cpf {
   constructor(
     public nome: string,
