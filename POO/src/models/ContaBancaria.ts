@@ -1,25 +1,25 @@
 class ContaBancaria {
-  public saldo: number;
+  private _saldo: number;
 
   constructor() {
-    this.saldo = 0;
+    this._saldo = 0;
   }
 
   consultar(): number {
-    return this.saldo;
+    return this._saldo;
   }
 
   depositar(valor: number): boolean {
     if (valor >= 0) {
-      this.saldo = valor;
+      this._saldo = valor;
       return true;
     }
     return false;
   }
 
   sacar(valor: number): boolean {
-    if (valor >= 0 && this.saldo >= valor) {
-      this.saldo -= valor;
+    if (valor >= 0 && this._saldo >= valor) {
+      this._saldo -= valor;
       return true;
     }
     return false;
