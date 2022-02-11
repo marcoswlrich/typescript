@@ -8,7 +8,7 @@ class ContaBancaria {
   constructor(numero: string, agencia: string) {
     this._saldo = 0;
     this._numero = this._validarNumero(numero) ? numero : '00000-0';
-    this._agencia = agencia;
+    this._agencia = this._validarAgencia(agencia) ? agencia : '000-0';
   }
 
   get numero(): string {
@@ -28,8 +28,7 @@ class ContaBancaria {
   }
 
   set agencia(valor: string) {
-    const regex = /^\d{3}-\d{1}$/;
-    if (regex.test(valor)) {
+    if (this._validarAgencia(valor)) {
       this._agencia = valor;
     } else {
       console.log('Número de agência inválida...');
@@ -60,6 +59,15 @@ class ContaBancaria {
     const regex = /^\d{5}-\d{1}$/;
     if (regex.test(numero)) {
       this._numero = numero;
+      return true;
+    }
+    return false;
+  }
+
+  private _validarAgencia(valor: string) {
+    const regex = /^\d{3}-\d{1}$/;
+    if (regex.test(valor)) {
+      this._agencia = valor;
       return true;
     }
     return false;
