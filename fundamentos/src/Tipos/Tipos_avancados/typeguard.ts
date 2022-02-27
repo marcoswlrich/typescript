@@ -25,3 +25,6 @@ function mostraNome(obj: PessoaOuAnimal): void {
       return;
   }
 }
+
+mostraNome(new Aluno('João'));
+mostraNome({tipo: 'animal', cor: 'rosa'});
