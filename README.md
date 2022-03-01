@@ -1,4 +1,4 @@
-## :white_floppy: Códigos de estudos
+## :computer: Códigos de estudos
 Anotações e testes de códigos em Typescript, fontes de pesquisas na documentação e estudos da linguagem. 
 <br><br>
 ## :books: Documentation
