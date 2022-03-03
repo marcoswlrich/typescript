@@ -1,7 +1,3 @@
-class Cachorro {
-constructor(public cor: string) {}
-}
-
 function decorator<T extends new (...args: any[]) => any>(target: T): T {
   return class extends target {
     cor: string;
@@ -12,7 +8,13 @@ function decorator<T extends new (...args: any[]) => any>(target: T): T {
     }
   };
 }
+@decorator
+class Cachorro {
+constructor(public cor: string) {}
+}
+
+
 
 const CachorroDecorated = decorator(Cachorro);
-const cachorro = new CachorroDecorated('Preto');
+const cachorro = new Cachorro('Preto');
 console.log(cachorro);
